@@ -1,0 +1,1000 @@
+:root {
+    --primary-color: #006400; 
+    --secondary-color: #128250; 
+    --accent-color: #fef464; /* Vàng sáng */
+    --text-light: #ffffff;
+    --text-green: #006400; /* Chữ xanh lá cho nút */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding-bottom: 60px;
+}
+
+.mobile-only { display: none !important; }
+.pc-only { display: block !important; }
+.header-mobile { display: none; }
+
+/* ================= HEADER PC ================= */
+.header-pc {
+    background-color: var(--primary-color);
+    position: relative;
+    min-height: 90px; 
+}
+
+.logo {
+    position: absolute;
+    left: 25%; /* Đã dịch một chút để cân đối không gian */
+    top: 50%; 
+    transform: translate(-50%, -50%); 
+}
+
+/* KHU VỰC BÊN PHẢI */
+.header-right { 
+    position: absolute;
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-end; 
+    right: 400px; /* Thu hẹp lại để lấy chỗ cho nhiều nút */
+    top: 15px; 
+    gap: 12px; /* Khoảng cách giữa 2 dòng */
+}
+
+/* --- DÒNG 1: NÚT BẤM --- */
+.auth-buttons {
+    display: flex;
+    gap: 15px; 
+    align-items: center;
+}
+
+/* Nút Thể thao (Dùng ảnh có sẵn) */
+.btn-bet {
+    background: transparent; /* Xóa nền màu */
+    border: none;            /* Xóa viền */
+    padding: 0;              /* Xóa khoảng trống thừa */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.btn-bet img {
+    height: 35px; /* Điều chỉnh chiều cao này cho cân đối với 2 nút Đăng nhập/Đăng ký */
+    width: auto;  /* Giữ đúng tỷ lệ ảnh gốc */
+}
+
+/* Cấu trúc chung nút Đăng nhập / Đăng ký */
+.btn-login, .btn-register {
+    padding: 13px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    color: var(--text-green); /* Chữ màu xanh đậm */
+}
+
+/* Nút Đăng nhập */
+.btn-login { 
+    background: linear-gradient(to bottom, #ffffff, #fdf6d8); /* Trắng ngả vàng */
+}
+
+/* Nút Đăng ký và Wrapper chứa badge */
+.register-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.btn-register { 
+    background: linear-gradient(to bottom, #fef464, #f3d027); /* Vàng gradient */
+}
+
+/* Các huy hiệu đỏ (Badges) */
+.badge {
+    position: absolute;
+    background-color: #e50000;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    border: 1px solid #fff;
+    z-index: 10;
+}
+
+.badge-register {
+    top: -12px;
+    right: -10px;
+    border-radius: 10px; /* Bo tròn hoàn toàn */
+    padding: 2px 6px;
+}
+
+.badge-link {
+    top: -10px;
+    right: -30px; /* Đẩy hẳn sang bên phải chữ */
+    border-radius: 5px 5px 5px 0; /* Tạo hiệu ứng hình đuôi bong bóng chat */
+    padding: 1px 4px;
+    transform: scale(0.9);
+}
+
+/* --- DÒNG 2: LINKS VÀ THỜI GIAN --- */
+.sub-links-time {
+    display: flex;
+    align-items: center;
+    gap: 35px; /* Khoảng cách giữa các link khá rộng ở bản gốc */
+    font-size: 13px;
+    padding-right: 5px;
+}
+
+.sub-link {
+    color: #fef464; /* Chữ vàng */
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    position: relative; /* Để neo badge */
+}
+
+.time {
+    color: #fef464; /* Chữ thời gian vàng */
+    margin-left: 10px;
+}
+/* ================= NAV PC ================= */
+.nav-pc {
+    background-color: #f9fafa; /* Màu nền xanh lục của thanh menu */
+    padding: 5px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Căn giữa toàn bộ danh sách menu */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Đường viền mờ ngăn cách với header nếu cần */
+}
+
+.nav-pc ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 45px; /* CHỈNH THỦ CÔNG: Khoảng cách giữa các mục menu (tăng/giảm tùy ý) */
+    padding: 0;
+    margin: 0;
+}
+
+.nav-pc li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    font-size: 12px; /* CHỈNH THỦ CÔNG: Kích cỡ chữ */
+    font-weight: 600;
+    color: #014119; /* Màu xanh ngọc nhạt mặc định giống bản gốc */
+    transition: color 0.2s ease-in-out;
+    gap: 6px; /* Khoảng cách giữa icon và chữ */
+}
+
+.nav-pc li i {
+    font-size: 24px; /* CHỈNH THỦ CÔNG: Kích cỡ của icon */
+}
+
+/* Đổi sang màu vàng khi di chuột (hover) hoặc khi đang ở trang đó (active) */
+.nav-pc li:hover,
+.nav-pc li.active {
+    color: #ffde00; /* Màu vàng sáng */
+}
+/* ================= MARQUEE ================= */
+.marquee-container {
+    display: flex;
+    align-items: center;
+    /* Dựa theo ảnh, màu nền của thanh này giống màu nền chính hoặc hơi đậm hơn một chút */
+    background-color: var(--primary-color); 
+    padding: 8px 0; /* Độ dày của thanh thông báo */
+    font-size: 17px; /* Kích cỡ chữ tổng thể */
+    width: 100%;
+    overflow: hidden; /* Tránh bị thanh cuộn ngang */
+    border-bottom: 1px solid rgba(0,0,0,0.1); /* Đường kẻ viền mờ dưới cùng nếu muốn */
+}
+
+.marquee-label {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* CHỈNH THỦ CÔNG: Khoảng cách giữa Icon cái loa và chữ "Tin tức mới nhất" */
+    color: #ffde00; /* Màu vàng chuẩn theo ảnh */
+    white-space: nowrap; /* Bắt buộc chữ tĩnh phải nằm trên 1 dòng */
+    
+    /* CHỈNH THỦ CÔNG VỊ TRÍ XUẤT HIỆN: Đẩy cụm icon+chữ từ mép trái màn hình vào trong */
+    margin-left: 20%; /* Bạn có thể tăng/giảm số % này, hoặc dùng số cố định như 300px */
+    
+    /* CHỈNH THỦ CÔNG: Khoảng cách từ chữ "Tin tức mới nhất" đến lúc chữ chạy bắt đầu xuất hiện */
+    margin-right: 15px; 
+}
+
+.marquee-scroll {
+    color: #ffffff; /* Chữ thông báo chạy màu trắng */
+    flex-grow: 1; /* Cho phép vùng chữ chạy chiếm toàn bộ không gian còn lại bên phải */
+    
+    /* CHỈNH THỦ CÔNG VỊ TRÍ KẾT THÚC CHẠY (Bên phải) */
+    /* Nếu không muốn chữ chạy ra sát tận mép phải màn hình, hãy tăng con số này lên */
+    margin-right: 20%; 
+}
+/* ================= BANNER SLIDER CẬP NHẬT ================= */
+.banner-wrapper {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden; /* Che đi phần ảnh chưa chạy tới */
+    position: relative;
+    display: block;
+}
+
+.banner-track {
+    display: flex;
+    flex-wrap: nowrap; /* BẮT BUỘC: Ép các ảnh nằm thành 1 hàng ngang, tuyệt đối không rớt dòng xuống dưới */
+    width: 700%; /* Khung chứa 7 ảnh (6 thật + 1 ảo), mỗi ảnh 100% màn hình -> Tổng là 700% */
+    animation: slideBanner 24s infinite; 
+}
+
+.banner-track img {
+    /* Ép mỗi ảnh chiếm chính xác 1 phần 7 của track (tương đương 100% chiều rộng màn hình) */
+    width: 14.285714%; 
+    flex: 0 0 14.285714%; 
+    height: auto; /* Chiều cao tự động bóp nhỏ lại theo tỷ lệ chuẩn của ảnh khi sang điện thoại */
+    object-fit: cover; 
+    display: block;
+}
+
+/* HIỆU ỨNG TRƯỢT (KEYFRAMES) 
+   Tính toán lại theo % của dải track. 
+   Dịch chuyển -14.2857% tương đương với việc trượt đi 1 tấm ảnh.
+*/
+@keyframes slideBanner {
+    /* Đứng ở ảnh 1 */
+    0%, 10% { transform: translateX(0); }
+    
+    /* Trượt sang ảnh 2 */
+    15%, 26% { transform: translateX(-14.285714%); }
+    
+    /* Trượt sang ảnh 3 */
+    31%, 43% { transform: translateX(-28.571428%); }
+    
+    /* Trượt sang ảnh 4 */
+    48%, 60% { transform: translateX(-42.857142%); }
+    
+    /* Trượt sang ảnh 5 */
+    65%, 76% { transform: translateX(-57.142857%); }
+    
+    /* Trượt sang ảnh 6 */
+    81%, 93% { transform: translateX(-71.428571%); }
+    
+    /* Trượt sang ảnh 7 (ảnh lặp lại), lập tức reset vòng lặp */
+    98%, 100% { transform: translateX(-85.714285%); }
+}
+
+/* Tạm dừng chạy khi di chuột vào banner (Dành cho PC) */
+.banner-wrapper:hover .banner-track {
+    animation-play-state: paused;
+}
+/* ================= DANH MỤC GAME ================= */
+.game-categories {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap; /* Tuyệt đối không cho rớt dòng */
+    justify-content: center;
+    gap: 10px; /* Khoảng cách giữa các thẻ (tổng cộng có 5 khoảng hở = 50px) */
+    padding: 20px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Cấu hình chung cho cả 6 thẻ game */
+.game-card {
+    /* QUAN TRỌNG NHẤT: Ép các thẻ chia đều không gian. 
+       Dùng calc(100% / 6) để chia 6 cột, trừ đi phần khoảng hở (gap) */
+    flex: 0 0 calc((100% - 50px) / 6); 
+    max-width: calc((100% - 50px) / 6); 
+    
+    /* Thiết lập ảnh ghép (Sprite) */
+    aspect-ratio: 16 / 23; /* Bạn có thể thay đổi tỷ lệ này nếu ảnh bị lùn hoặc ốm */
+    background-size: 100% 200%; 
+    background-position: top; /* Mặc định hiện nửa trên */
+    background-repeat: no-repeat;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-position 0.15s ease-in-out, transform 0.2s;
+    
+    /* Xóa bỏ viền và màu nền vì ảnh đã tự có */
+    border: none;
+    background-color: transparent;
+}
+
+/* Hiệu ứng khi rê chuột vào */
+.game-card:hover {
+    background-position: bottom; /* Cuộn ảnh xuống để lộ nửa dưới (nút vàng) */
+    transform: translateY(-5px); /* Hiệu ứng nảy lên */
+}
+/* ================= DANH SÁCH GAME CHI TIẾT (PG NỔ HŨ) ================= */
+.sub-games-section {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Header: Tiêu đề và Nút */
+.sub-games-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sub-title {
+    color: #ffde00; /* Màu vàng */
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.vertical-line {
+    display: inline-block;
+    width: 3px;
+    height: 16px;
+    background-color: #ffde00;
+}
+
+/* Nút điều hướng */
+.sub-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.btn-circle, .btn-more {
+    background: transparent;
+    border: 1px solid #ffde00;
+    color: #ffde00;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-circle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.btn-more {
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 13px;
+}
+
+.btn-circle:hover, .btn-more:hover {
+    background: #ffde00;
+    color: #0b5c38;
+}
+
+/* Danh sách 5 Game */
+.sub-games-list {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.sub-game-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    flex: 1; /* Tự động chia đều không gian cho 5 game */
+    cursor: pointer;
+}
+
+/* Khối nền đen bo tròn chứa ảnh game */
+.sub-game-bg {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Giữ khung hình vuông để làm tròn */
+    max-width: 160px; /* Giới hạn độ lớn */
+    background-color: #111111; /* Nền đen đậm giống bản gốc */
+    border-radius: 40%; /* Bo góc dạng squircle (lai giữa vuông và tròn) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+
+.sub-game-bg img {
+    width: 85%; /* Ảnh bên trong nhỏ hơn khung nền đen */
+    height: 85%;
+    object-fit: cover;
+    border-radius: 12px; /* Bo góc nhẹ cho tấm ảnh bên trong */
+}
+
+.sub-game-item:hover .sub-game-bg {
+    transform: translateY(-5px); /* Nảy lên khi rê chuột */
+}
+
+.sub-game-name {
+    color: #ffde00;
+    font-size: 13px;
+    text-align: center;
+}
+/* ================= PHẦN TẢI APP (ĐỐI TÁC ĐÁNG TIN CẬY) ================= */
+.app-download-section {
+    background-color: #ffffff; /* Nền trắng bạt ngàn */
+    width: 100%;
+    padding: 60px 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px; /* Tạo khoảng cách với phần game ở trên */
+}
+
+.app-content {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    gap: 40px;
+}
+
+/* --- Cột trái: Chữ và QR --- */
+.download-info {
+    flex: 1;
+}
+
+.download-info h2 {
+    color: #128250; /* Xanh lá đậm */
+    font-size: 32px;
+    line-height: 1.4;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.download-info p {
+    color: #2a9d6c; /* Xanh lá nhạt hơn cho mô tả */
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 35px;
+    max-width: 90%; /* Giới hạn độ dài dòng để đẹp như bản gốc */
+}
+
+.qr-download-area {
+    display: flex;
+    gap: 50px;
+}
+
+.qr-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.qr-image {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+}
+
+.qr-text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.os-title {
+    color: #128250;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-guide {
+    background: transparent;
+    border: 1px solid #128250;
+    color: #128250;
+    padding: 6px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s;
+}
+
+.btn-guide:hover {
+    background: #128250;
+    color: #ffffff;
+}
+
+/* --- Cột phải: Điện thoại --- */
+.phone-mockups {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end; /* Đẩy cụm điện thoại sang góc phải */
+}
+
+.phone-mockups img {
+    max-width: 100%;
+    height: auto;
+    max-height: 380px; /* Điều chỉnh con số này để phóng to/thu nhỏ ảnh điện thoại */
+    object-fit: contain;
+}
+/* ================= RESPONSIVE ĐIỆN THOẠI (Dưới 768px) ================= */
+@media (max-width: 768px) {
+    .pc-only { display: none !important; }
+    .mobile-only { display: flex !important; }
+    
+    /* Ẩn Header & Nav PC */
+    .header-pc, .nav-pc { display: none; }
+    
+    /* Header Mobile */
+    .header-mobile {
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        background-color: var(--primary-color);
+        font-size: 20px;
+    }
+
+    /* Grid Game cho Mobile (2 cột thay vì 4 cột) */
+    .game-categories {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 10px;
+        gap: 10px;
+    }
+
+    /* Khung bao ngoài các nút Action Mobile */
+    .mobile-actions {
+        display: flex !important;
+        align-items: center;
+        background-color: #0b5c38; /* Nền xanh đậm tổng thể */
+        height: 70px; /* Chiều cao cố định của thanh */
+        margin-top: 5px; /* Khoảng cách nhỏ với banner phía trên */
+        overflow: hidden; /* Che đi các phần tràn góc */
+    }
+
+    /* Cụm trái (Nền xanh nhạt, vát chéo góc) */
+    .mobile-auth-group {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        width: 35%; /* Chiếm 35% chiều ngang */
+        height: 100%;
+        background-color: #1a9e65; /* Xanh lá nhạt hơn */
+        
+        /* Cắt khối màu tạo hiệu ứng đường xéo.
+           100% 0: Điểm trên cùng bên phải.
+           80% 100%: Điểm dưới cùng bên phải bị kéo thụt vào 20% */
+        clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+        padding-right: 15px; /* Đẩy nội dung tránh góc vát */
+    }
+
+    /* Nút Đăng nhập / Đăng ký viền vàng */
+    .btn-outline-yellow {
+        background: transparent;
+        border: 1px solid #ffde00; /* Viền vàng */
+        color: #ffde00; /* Chữ vàng */
+        border-radius: 3px;
+        padding: 4px 0;
+        font-size: 10px;
+        font-weight: bold;
+        width: 80%; 
+        text-align: center;
+    }
+
+    /* Cụm phải (Nút Nạp/Rút có icon) */
+    .mobile-transaction-group {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 65%; /* Chiếm 65% chiều ngang còn lại */
+        height: 100%;
+    }
+
+    .transaction-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        color: #ffde00; /* Chữ vàng */
+        font-size: 10px;
+        font-weight: bold;
+    }
+
+    .transaction-btn i {
+        font-size: 22px; /* Kích thước icon */
+        /* Tạo hiệu ứng gradient nhẹ cho icon bằng text-shadow */
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+
+    /* Menu cố định dưới cùng Mobile */
+    .bottom-nav-mobile {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-color);
+        display: flex !important;
+        justify-content: space-around;
+        padding: 10px 0;
+        border-top: 2px solid var(--bg-dark);
+        z-index: 1000;
+    }
+    .bottom-nav-mobile .nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 11px;
+        color: var(--text-light);
+    }
+    .bottom-nav-mobile .nav-item.active { color: var(--accent-color); }
+    .bottom-nav-mobile .nav-item i { font-size: 18px; margin-bottom: 4px; }
+}
+/* ================= MODAL ĐĂNG NHẬP / ĐĂNG KÝ ================= */
+.auth-modal {
+    display: none; /* Mặc định ẩn */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Kích hoạt hiển thị khi có class "show" */
+.auth-modal.show {
+    display: flex;
+}
+
+.modal-container {
+    background-color: #0c613c; /* Xanh lá tối đặc trưng */
+    width: 90%;
+    max-width: 450px;
+    border-radius: 8px;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    max-height: 90vh; /* Không vượt quá chiều cao màn hình */
+    overflow-y: auto; /* Cho phép cuộn nếu màn hình quá nhỏ */
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #2bb97f;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-modal:hover { color: #ffffff; }
+
+.modal-logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal-logo img {
+    height: 60px;
+    object-fit: contain;
+}
+
+/* Tabs */
+.modal-tabs {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 2px solid #084027;
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    color: #2bb97f;
+    font-weight: bold;
+    font-size: 16px;
+    padding-bottom: 10px;
+    cursor: pointer;
+    width: 50%;
+    text-align: center;
+}
+
+.tab-btn.active {
+    color: #ffffff;
+}
+
+/* Forms */
+.auth-form {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.auth-form.active {
+    display: flex;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group label {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: bold;
+}
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+.form-hint {
+    color: #88c9a1;
+    font-size: 11px;
+}
+
+.form-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #ffffff;
+    margin-top: 5px;
+}
+
+.form-checkbox a {
+    color: #ffde00;
+    text-decoration: underline;
+}
+
+/* Nút Submit */
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.outline-btn {
+    background: transparent;
+    border: 1px solid #ffde00;
+    color: #ffde00;
+}
+
+.outline-btn:hover {
+    background: #ffde00;
+    color: #0b5c38;
+}
+
+.solid-btn {
+    background: #695415; /* Vàng sậm */
+    border: none;
+    color: #ffffff;
+}
+
+.solid-btn:hover {
+    background: #fac833;
+}
+/* ================= RESPONSIVE ĐIỆN THOẠI (Dưới 768px) ================= */
+@media (max-width: 768px) {
+    
+    /* 1. Ẩn danh mục game nằm ngang của PC trên điện thoại */
+    .game-categories {
+        display: none !important;
+    }
+
+    /* 2. Ẩn thanh thông báo tin tức chạy (Marquee) trên điện thoại */
+    .marquee-container {
+        display: none !important;
+    }
+
+    /* ... (Giữ nguyên các code khác của phần mobile ở đây, ví dụ như ẩn header-pc, hiện header-mobile...) ... */
+    /* Ẩn phần danh sách game chi tiết (PG Nổ Hũ) trên điện thoại */
+    .sub-games-section {
+        display: none !important;
+    }
+
+    /* Bổ sung: Ẩn phần tải app trên điện thoại */
+    .app-download-section {
+        display: none !important;
+    }
+    /* Thanh chứa sảnh game (cho phép vuốt ngang) */
+    .mobile-lobby-nav {
+        display: flex !important;
+        background-color: #ffffff; /* Nền trắng */
+        padding: 15px 10px;
+        overflow-x: auto; /* Kích hoạt vuốt ngang */
+        white-space: nowrap; /* Ép các thẻ nằm trên 1 hàng */
+        
+        /* Ẩn thanh cuộn (scrollbar) cho đẹp */
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    
+    .mobile-lobby-nav::-webkit-scrollbar {
+        display: none; /* Ẩn thanh cuộn trên Chrome/Safari */
+    }
+
+    .lobby-list {
+        display: flex;
+        gap: 12px; /* Khoảng cách giữa các nút */
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Các nút sảnh game */
+    .lobby-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-width: 65px; /* Chiều ngang cố định của nút */
+        height: 75px; /* Chiều cao cố định */
+        background-color: #27a776; /* Nền xanh lục nhạt */
+        border-radius: 16px; /* Bo góc tròn nhiều */
+        color: #0b5c38; /* Icon và chữ màu xanh đậm */
+        box-shadow: 0 4px 6px rgba(0,0,0,0.15); /* Đổ bóng nhẹ tạo độ nổi */
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .lobby-item i {
+        font-size: 24px;
+        margin-bottom: 6px;
+    }
+
+    .lobby-item span {
+        font-size: 9px;
+        font-weight: bold;
+    }
+
+    /* Trạng thái đang chọn (Mục HOT NHẤT) */
+    .lobby-item.active {
+        background-color: #1e9d68; 
+        color: #ffffff; /* Đổi icon và chữ thành màu trắng */
+    }
+
+    /* Lưới danh sách game 2 cột */
+    .mobile-game-list {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 15px 10px;
+        background-color: #ffffff;
+        /* Chỉnh lại thành 10px thay vì 80px */
+        padding-bottom: 10px; 
+    }
+
+    /* Khung thẻ game màu xanh lá */
+    .m-game-card {
+        background-color: #179361; /* Màu xanh lá chuẩn của thẻ */
+        border-radius: 6px;
+        position: relative; /* Làm gốc tọa độ để đặt chữ đè lên */
+        overflow: hidden;
+    }
+
+    /* Hình ảnh game PNG */
+    .m-game-card img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    /* Chữ Tên Game đặt ở khoảng trống bên trái */
+    .m-game-name {
+        position: absolute;
+        top: 58%; /* Đẩy xuống giữa */
+        left: 3%; /* Cách lề trái */
+        width: 45%; /* Giới hạn độ rộng để không đè vào hình nhân vật */
+        transform: translateY(-50%); /* Căn giữa hoàn hảo theo chiều dọc */
+        
+        color: #ffffff;
+        font-size: 11px;
+        font-weight: bold;
+        text-align: center;
+        line-height: 1.3;
+        z-index: 2;
+    }
+
+    /* Chữ "vào trò chơi" ở góc phải dưới */
+    .m-game-enter {
+        position: absolute;
+        bottom: 5px;
+        right: 8px;
+        color: #8ce3b5; /* Màu xanh ngọc nhạt */
+        font-size: 9px;
+        z-index: 2;
+    }
+    /* Phần Tải Ứng Dụng Mobile */
+    .mobile-app-download {
+        display: block !important;
+        background-color: #ffffff;
+        padding: 15px;
+        padding-top: 5px;
+        /* Giảm từ 90px xuống 15px để xóa khoảng trắng */
+        padding-bottom: 15px; 
+    }
+
+    .m-app-title {
+        color: #0b7a75; /* Màu xanh lơ đậm giống bản gốc */
+        font-size: 15px;
+        font-weight: bold;
+        margin-bottom: 25px; /* Tạo khoảng trống phía trên khung xanh để điện thoại nhô lên */
+    }
+
+    /* Khung nền xanh lá */
+    .m-app-banner {
+        background-color: #158b5a; 
+        border-radius: 8px;
+        height: 55px; /* Chiều cao cố định của dải màu xanh */
+        position: relative; /* Làm gốc tọa độ cho chiếc điện thoại */
+        display: flex;
+        align-items: center;
+        padding-left: 15px;
+    }
+
+    .m-app-buttons {
+        display: flex;
+        gap: 20px;
+        z-index: 2; /* Đảm bảo chữ nổi lên trên nếu ảnh điện thoại bị lấn sang */
+    }
+
+    .m-dl-btn {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: #ffffff;
+        font-size: 12px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    /* Kích thước của 2 icon Android/iOS bạn thêm vào */
+    .m-dl-btn img {
+        width: 22px;
+        height: 22px;
+        object-fit: contain;
+    }
+
+    /* Định vị chiếc điện thoại đè lên viền */
+    .m-app-phone {
+        position: absolute;
+        right: 0;
+        bottom: -5px; /* Thụt xuống dưới khung xanh một chút */
+        height: 125px; /* Chiều cao ảnh lớn hơn khung xanh (55px) để tạo hiệu ứng thò lên trên */
+        z-index: 1;
+        object-fit: contain;
+    }
+}
